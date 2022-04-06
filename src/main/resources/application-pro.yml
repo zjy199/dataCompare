@@ -1,0 +1,48 @@
+server:
+  port: 9001
+
+spring:
+  application:
+    name: datasource-compare
+  datasource:
+
+    master:
+      jdbc-url: jdbc:mysql://localhost:3306/comp1?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&useSSL=false
+      username: root
+      password: qazwsxedc
+      driver-class-name: com.mysql.cj.jdbc.Driver
+
+    slave:
+      jdbc-url: jdbc:mysql://localhost:3306/comp2?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&useSSL=false
+      username: root
+      password: qazwsxedc
+      driver-class-name: com.mysql.cj.jdbc.Driver
+  redis:
+      host: 192.168.140.128
+      port: 6379
+      max-wait: 30000
+      max-active: 100
+      max-idle: 20
+      min-idle: 0
+  jackson:
+    serialization:
+      write-null-map-values: true
+mybatis:
+  mapper-locations: classpath*:mapper/*.xml
+  type-aliases-package: com.thxh.datacompare.dao
+  configuration:
+    call-setters-on-nulls: true
+    return-instance-for-empty-row: true
+#
+#mybatis:
+#  mapper-locations: classpath*:mapper/*.xml
+#  type-aliases-package: com.thxh.datacompare.dao
+#  configuration:
+#    call-setters-on-nulls: true
+#    return-instance-for-empty-row: true
+
+
+
+
+
+
